@@ -1,0 +1,58 @@
+body {
+    font-family: 'Nunito', sans-serif;
+    padding: 10px;
+    margin: 10px;
+}
+
+label {
+    padding: 5px;
+    margin: 5px;
+}
+textarea {
+    min-height: 100px;
+    width: 300px;
+    padding: 5px;
+    margin: 5px;
+}
+
+select {
+    width: 300px;
+    padding: 5px;
+    margin: 5px;
+}
+
+input[type=submit]{
+    width: 75px;
+    height: 30px;
+}
+
+li {
+    list-style: none;
+    text-indent: -40px ;
+}
+
+li.log-row{
+    text-indent: -40px ;
+    padding: 5px 0 ;
+}
+
+div.date{
+    font-size: .9em;
+    line-height: 35px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 112px;
+    padding-left: 50px;
+    margin-left: -35px;
+}
+div.message{
+    line-height: 35px;
+    border: 1px solid #c5c5c5;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 300px;
+    padding-left: 50px;
+    margin-left: -35px;
+}
