@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::redirect('/', '/notifications/user/1');
+
+
 Route::get('/notifications/user/{id}', function ($id) {
     return view('notifications')->with('userId', $id);
 });

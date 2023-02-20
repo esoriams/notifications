@@ -55,44 +55,36 @@ As user interface 2 main elements are displayed:
 
 ``git clone https://github.com/esoriams/notifications.git``
 
-3. Install laravel dependencies
+3. Move into the folder project
+
+``cd notifications``
+
+4. Install laravel dependencies
 
 ``composer install``
 
-4. Create configuration file by copying ``.env.example`` into ``.env``
+5. Create configuration file by copying ``.env.example`` into ``.env``
 
 ``cp .env.example .env``
 
-5. Open copy ``.env``  file and set the url server and the database credentials, e.g:
+6. Open copy ``.env``  file and set the url server and the database credentials, e.g:
    
    - APP_URL=http://127.0.0.1:8000
    - DB_DATABASE=notifications
    - DB_USERNAME=dbuser
    - DB_PASSWORD=userpassword
 
-6. Execute migrations and seed to create database schema
+7. Execute migrations and seed to create database schema
 
 ``php artisan migrate --seed``
 
-7. Install NPM Dependencies
+8. Install NPM Dependencies, Vue.js 3, vitejs/plugin-vue plugin & compile the assets
 
-``npm install``
+``npm install && npm install vue@next vue-loader@next && npm i @vitejs/plugin-vue && npm run build``
 
-8. Install Vue.js 3
+9. Start Laravel server in one console window
 
-``npm install vue@next vue-loader@next``
-
-9. Install vitejs/plugin-vue plugin
-
-``npm i @vitejs/plugin-vue``
-
-10. Compile the assets
-
-``npm run build``
-
-10. Start Laravel server in one console window
-
-``php artisan laravel serve``
+``php artisan serve``
 
 ...Ready to use it :)
 
