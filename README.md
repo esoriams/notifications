@@ -90,10 +90,8 @@ As user interface 2 main elements are displayed:
 
 ## How to use it
 
-Main url is kind of ``http://127.0.0.1:8000/notifications/user/[user id]``, depends on your local configuration. 
+Main url is kind of ``http://127.0.0.1:8000/``, depends on your local configuration. 
 Database seeder by default creates 3 users, so you can set 1, 2 or 3 as "user id"...
-
-Let's try ``http://127.0.0.1:8000/notifications/user/1``
 
 The system has been developed to consume the web api internally, so you can check it all of them by launching the command:
 

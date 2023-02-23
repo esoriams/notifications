@@ -11,7 +11,5 @@ interface NotificationInterface
 
     function setMessage(string $text):void;
 
-    function saveLog(array $info):void;
-
     function sendMessage():bool;
 }

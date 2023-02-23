@@ -19,40 +19,33 @@ select {
     width: 300px;
     padding: 5px;
     margin: 5px;
+    display: block;
+    border: black solid 1px;
 }
 
 input[type=submit]{
     width: 75px;
     height: 30px;
+    padding: 5px;
+    margin: 5px;
 }
 
-li {
-    list-style: none;
-    text-indent: -40px ;
+table.log {
+    min-width: 700px;
 }
 
-li.log-row{
-    text-indent: -40px ;
-    padding: 5px 0 ;
-}
-
-div.date{
+table.log > thead > tr > th {
+    background-color: #c5c5c5;
+    border: solid #2d3748 1px;
+    text-align: center;
+    padding: 6px;
+    margin: 0px;
     font-size: .9em;
-    line-height: 35px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    width: 112px;
-    padding-left: 50px;
-    margin-left: -35px;
 }
-div.message{
-    line-height: 35px;
-    border: 1px solid #c5c5c5;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    width: 300px;
-    padding-left: 50px;
-    margin-left: -35px;
+
+table.log > tbody > tr > td {
+    border: solid #2d3748 1px;
+    padding: 6px;
+    margin: 0px;
+    font-size: .9em;
 }

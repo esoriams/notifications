@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::redirect('/', '/notifications/user/1');
-
-
-Route::get('/notifications/user/{id}', function ($id) {
-    return view('notifications')->with('userId', $id);
+Route::get('/', function () {
+    return view('notifications')->with('categories', Category::all() );
 });

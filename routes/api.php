@@ -4,12 +4,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Resources\UsersResource;
 use App\Http\Resources\UserResource;
-use App\Http\Resources\NotificationTypeResource;
+use App\Http\Resources\NotificationsResource;
+use App\Http\Resources\CategoriesResource;
 use App\Http\Models\User;
-use App\Http\Models\Channel;
-use \App\Http\Notifications\Types\Sms;
-use \App\Http\Notifications\Types\Email;
-use \App\Http\Notifications\Types\Push;
+use App\Http\Models\Category;
+use App\Http\Models\Message;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,19 +29,18 @@ Route::get('/user/{id}', function ($id) {
     return new UserResource(User::findOrFail($id));
 });
 
-Route::get('/notification-types', function () {
-    return new NotificationTypeResource(Channel::all());
+Route::get('/categories', function () {
+    return new CategoriesResource(Category::all());
 });
 
-Route::post('/notification/{channelId}', function($channelId, Request $request) {
-    switch ($channelId){
-        case 1:
-            return response()->json(Sms::notificate($request->all()));
-        case 2:
-            return response()->json(Email::notificate($request->all()));
-        case 3:
-            return response()->json(Push::notificate($request->all()));
-    }
+Route::get('/notifications', function () {
+    /** @var $blockSize */
+    $blockSize = 10;
+    return NotificationsResource::collection(Message::OrderBy('created_at', 'desc')->paginate($blockSize)
+                            );
 });
 
-
+Route::post('/notification/', function( Request $request) {
+    $notifications = Message::Send($request->get('category_id'), $request->get('message'));
+    return NotificationsResource::collection($notifications);
+});

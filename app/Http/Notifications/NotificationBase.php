@@ -2,7 +2,6 @@
 
 namespace App\Http\Notifications;
 
-use App\Http\Models\Message;
 use App\Http\Models\Channel;
 
 class NotificationBase implements NotificationInterface
@@ -23,35 +22,20 @@ class NotificationBase implements NotificationInterface
      * Get the notification type model
      * Set a new connection instance
      */
-    public function __construct(array $info)
+    public function __construct()
     {
         $this->notificationType = Channel::find($this->notificationTypeId);
         $this->setConnection(new Connection());
     }
 
     /**
-     * Save log and set message in notification parameter.
-     * @param array $info
-     * @return void
-     */
-    function saveLog(array $info): void
-    {
-        // Set current notification type id
-        if(!isset($info['notification_type_id'])){
-            $info['notification_type_id'] = $this->notificationType->id;
-        }
-        Message::create($info);
-        $this->setMessage($info['message']);
-    }
-
-    /**
-     * @param array $info
+     * @param string $message
      * @return bool
      */
-    public static function notificate(array $info){
+    public static function notificate(string $message){
         /** @var  $notification */
-        $notification = new static($info);
-        $notification->saveLog($info);
+        $notification = new static();
+        $notification->setMessage($message);
         return $notification->sendMessage();
     }
 }
